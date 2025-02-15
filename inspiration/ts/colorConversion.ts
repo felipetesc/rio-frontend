@@ -41,12 +41,12 @@ export function hsvToRgb(
 }
 
 export function rgbToHsv(
-    r: number,
+    red: number,
     g: number,
     b: number
 ): [number, number, number] {
-    let max = Math.max(r, g, b);
-    let min = Math.min(r, g, b);
+    let max = Math.max(red, g, b);
+    let min = Math.min(red, g, b);
 
     let d = max - min;
     let s = max === 0 ? 0 : d / max;
@@ -57,16 +57,16 @@ export function rgbToHsv(
         case min:
             h = 0;
             break;
-        case r:
+        case red:
             h = g - b + d * (g < b ? 6 : 0);
             h /= 6 * d;
             break;
         case g:
-            h = b - r + d * 2;
+            h = b - red + d * 2;
             h /= 6 * d;
             break;
         case b:
-            h = r - g + d * 4;
+            h = red - g + d * 4;
             h /= 6 * d;
             break;
     }
